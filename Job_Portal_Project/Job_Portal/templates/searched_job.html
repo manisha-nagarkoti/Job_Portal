@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/job_list.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+</head>
+<body>
+<center>
+
+      <h1>You Searched for {{job_name}}</h1>
+    {% if job1 %}
+
+      {% for i in job1 %}
+       <div class="company-details1">
+         <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update1">
+
+             <h1>{{i.title }}</h1>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+             <i class="fa fa-inr"></i><span>{{i.salary}}</span><br>
+             <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+             <p>Skills<i class="fa fa-angle-double-right"></i>
+                 <small>{{i.skills}}</small></p>
+             <p>Description<i class="fa fa-angle-double-right"></i> ...............<a href="{% url 'job_details' i.id %}">Read more</a></p>
+         </div>
+         </div>
+        <div class="apply-btn3">
+                <a href="{% url 'job_details' i.id %}"><button type="button" >Apply</button></a>
+
+       </div>
+
+    </div>
+
+    {% endfor %}
+
+    {%else%}
+    <h1>No Data found but view this jobs</h1>
+           {% for i in job2 %}
+       <div class="company-details1">
+         <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update1">
+
+             <h1>{{i.title }}</h1>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+             <i class="fa fa-inr"></i><span>{{i.salary}}</span><br>
+             <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+             <p>Skills<i class="fa fa-angle-double-right"></i>
+                 <small>{{i.skills}}</small></p>
+             <p>Description<i class="fa fa-angle-double-right"></i> ...............<a href="{% url 'job_details' i.id %}">Read more</a></p>
+         </div>
+         </div>
+        <div class="apply-btn3">
+                <a href="{% url 'job_details' i.id %}"><button type="button" >Apply</button></a>
+
+       </div>
+
+    </div>
+    {% endfor %}
+ {% endif %}
+</center>
+</body>
+</html>

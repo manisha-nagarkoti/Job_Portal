@@ -1,0 +1,157 @@
+body{
+	font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serit ;
+	margin:0;
+  padding:0;
+
+}
+
+.container {
+ text-align:center;
+ font-size:30px;
+ font-weight:500;
+
+ }
+ .container h1{
+   margin-bottom:8px;
+   color:#333;
+ }
+hr{
+  background:#017143;
+  height:4px;
+  width:100px;
+  margin-top:0px;
+}
+.company-details1{
+  width:1100px;
+  margin:3% auto;
+
+  border-width:2px;
+  border-radius:15px 50px;
+  border-color:#017143;
+  border-style:solid;
+
+}
+.d_l{
+display:flex;
+}
+
+.c_logo{
+height:200px;
+width:200px;
+background:green;
+margin-left:20px;
+margin-top:30px;
+}
+.c_logo img{
+height:200px;
+width:200px;
+background:blue;
+
+
+}
+.job-update1{
+margin-left:100px;
+height:280px;
+margin-top:0;
+
+}
+.job-update1 h1{
+  color:#333;
+  font-size:1.7em;
+}
+.job-update1 .fa{
+  color:#017143;
+  margin-right:20px;
+}
+.job-update1 .fa span{
+  font-weight:200;
+  font-size:18px:
+}
+.apply-btn3{
+  background:grey;
+  height:50px;
+  border-width:6px;
+  border-radius:15px 50px;
+ text-align:right;
+
+}
+.apply-btn3 a button{
+    height:50px;
+     width:200px;
+     padding:15px;
+     background-color:#017143;
+     font-size:16px;
+ 	color:white;
+ 	outline: none;
+ 	cursor:pointer;
+ 	border-width:2px;
+ 	border-radius:5px 10px;
+ 	font-weight: 500;
+
+
+
+}
+.company-details1:hover{
+  border-width:6px;
+
+}
+.pagelink{
+   text-align:center;
+   margin-bottom:100px;
+}
+.pagelink li{
+   height:25px;
+   width:25px;
+   list-style:none;
+   display: inline-block;
+   cursor: pointer;
+
+}
+.pagelink li:hover, .active{
+   color:#fff;
+   background-color:green;
+}
+
+.left-arrow{
+   color:#999;
+}
+.right-arrow{
+  color:#29b929;
+}
+
+
+.row{
+display:flex;}
+
+.search1{
+    display:inline-block;
+    height:4rem;
+    background:#017143;
+ 	width:1000px;
+ 	margin-top:100px;
+ 	margin-bottom:80px;
+
+}
+
+.search1  form .searchbox{
+ 	width: 300px;
+ 	height: 2rem;
+ 	display:inline-flex;
+ 	margin: 18px 5px;
+
+ 	border-radius: 0;
+ 	box-shadow:none ;
+ 	border:none;
+ 	text-align:center;
+ }
+.search1  form button{
+  background:#017143;
+  border:none;
+}
+.search1  form label {
+   font-size:30px;
+   cursor: pointer;
+   background:#017143;
+   color:white;
+   margin-left:100px
+}

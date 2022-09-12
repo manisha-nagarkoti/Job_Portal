@@ -1,0 +1,74 @@
+{% load static %}
+{% include 'navigation.html' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/job_details.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block body %}
+
+<div class="container1">
+    <div class="row">
+        <div class="img">
+           <img src="{{studata.candidate_logo.url}}">
+        </div>
+        <div class="detail">
+             <h1>PERSONAL INFO</h1>
+        <h5>Full name</h5>
+        <label>{{studata.user.first_name}}  {{studata.user.last_name}} </label>
+
+         <h5>Email id</h5>
+        <label>{{studata.user.username}}</label>
+
+        <h5>gender</h5>
+        <label>{{studata.gender}}</label>
+
+        <h5>Date of Birth</h5>
+        <label>{{studata.date_of_birth}}</label>
+
+        <h5>Address</h5>
+        <label>{{studata.address}}</label>
+
+        <h5>Mobile no.</h5>
+        <label>{{studata.mobile_no}}</label>
+        <hr>
+      </div>
+
+      <div class="detail">
+        <h1>EDUCATION</h1>
+        <h5>College name</h5>
+
+        <label>{{studata.clg_name}}</label>
+
+         <h5>Course</h5>
+        <label>{{studata.course}}</label>
+
+        <h5>Specialization</h5>
+        <label>{{studata.specialization}}</label>
+
+        <h5>Joining date</h5>
+        <label>{{studata.joining_date}}</label>
+
+        <h5>ending date</h5>
+        <label>{{studata.ending_date}}</label>
+
+          <h5>Resume</h5>
+          <a href={{job_de.resume.url}}>Download Resume</a>
+        </div>
+
+    </div>
+    <div class="letter">
+        <h1>cover Letter</h1>
+        <div class="text">
+            <textarea class="text_area" name="about"   rows="5" cols="100">{{job_de.cover_letter}}</textarea>
+        </div>
+        <h1>why we hire you</h1>
+        <div class="text">
+            <textarea class="text_area" name="about"  rows="5" cols="100">{{job_de.hire_why}}</textarea>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}

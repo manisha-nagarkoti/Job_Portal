@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_css.css' %}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-
+</head>
+<body>
+   <header>
+
+   <div class="navigation">
+
+       <h1>Job Portal</h1>
+       <ul>
+            <li><a href="/user_profile">Join now</a></li>
+            <li><a  href="/login_form">Login</a></li>
+        </ul>
+
+   </div>
+
+   <div class="content">
+      <div class="textbox">
+        <h2> It's not just Job <br>It's <span>Your Dream</span></h2>
+        <p>Find job,Employment and Career Opportunities</p>
+        <a href="user_profile">GET STARTED</a>
+     </div>
+     <div class="imgbox">
+        <img src="{% static 'images/image3.jpg' %}" class="job_image">
+     </div>
+  </div>
+</header>
+
+<section>
+<div class="job_search">
+    <form class="content2" method="post" action="{% url 'searched_job'%}">
+        {% csrf_token %}
+        <h1>Find open jobs and internship</h1>
+        <input type="text" name="job_name" placeholder="Search job title and company">
+        <input type="text" name="loc_name" placeholder="Search by location">
+        <a><input type="submit" name="search_button" value="Search Jobs"></a>
+    </form>
+</div>
+<div class="recruiter">
+    <div class="recruiter1"><h1>Post your job and find the people you need</h1>
+        <p>Post your job get the best employee for your company in just one click.<br>Star now.</p>
+    <a href="/user_profile"><input type="submit" name="search_button" value="POST JOBS"></a></div>
+    <img src="{% static 'images/to-do-img1.png' %}" >
+</div>
+</section>
+<section>
+	<div class="job-app">
+	<h1>How It Work</h1>
+
+	<p>Find a job to tell us about your project .We'll quickly match you with the right<br>freelancer</p>
+     <div class="job-app1"	>
+
+         <div class="company">
+		 <div class="job-app-icon"><img src="{% static 'images/icon1.png'%}"></div>
+		 <h3>Register an account</h3>
+		 <p>Register an account so you can keep track<br>of your application and register for email<br>notification sent weekly.<br>Registration is free</p>
+		 <div class="link"><a href="/user_profile">Register<i class="fa fa-angle-double-right"></i></a></div>
+
+      	</div>
+
+
+   	   <div class="company">
+        <div class="job-app-icon"><img src="{% static 'images/icon2.png'%}"></div>
+		 <h3>Search your job</h3>
+		 <p>Search directly on your website for<br>available opportunities and immediately <br>apply or follow our social media for up to<br>data listings.</p>
+		<div class="link>"><a href="/job_list3">See Jobs<i class="fa fa-angle-double-right"></i></a></div>
+   	    </div>
+
+         <div class="company">
+             <div class="job-app-icon"><img src="{% static 'images/icon3.png'%}"></div>
+		    <h3>Apply for Job</h3>
+		    <p>We all send you directly to the company<br>advertising the position so you apply<br>for your dream job.Every job on our site is<br>up to date.</p>
+			<div class="link"><a href="/job_list3">See Jobs<i class="fa fa-angle-double-right"></i></a></div>
+		</div>
+	 </div>
+    </div>
+
+</section>
+   <section class="clt-section">
+	<div class="clt-text-section">
+		<h1>
+			Receive New Job Offers
+		</h1>
+        <p>
+        	Want to know as soon as a new job is posted on our website?Suscribe to our weekly job offer digest.
+        </p>
+        <div class="email-container">
+        	<input type="email" name="email" placeholder="Enter Your Email" />
+        	<button>Suscribe</button>
+
+        </div>
+	</div>
+   <div class="ctl-image">
+      <img src="{%static 'images/images 1.jpg' %}">
+   </div>
+
+</section>
+
+{% include 'footer.html'%}
+
+</body>
+</html>

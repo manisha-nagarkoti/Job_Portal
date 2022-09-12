@@ -1,0 +1,59 @@
+
+{% load static %}
+ {% include 'message.html'%}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/user_login_design.css'%}" >
+{% block body %}
+<div class="hero" >
+
+     <img src="{% static 'images/login.jpg'%}">
+    <div class="heading"><h1>Log In</h1>
+
+                <p>Log In for latest Job posted on Job Portal</p>
+         </div>
+
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"> </div>
+                <button type="button" class="toggle-btn" onclick="candidate()">Candidate</button>
+                <button type="button" class="toggle-btn" onclick="recruiter()">Recruiter</button>
+
+            </div>
+            <form class="input-group" id="candidate" method="post" action="/candidate_login">
+                {% csrf_token %}
+            <input type="text" class="input-field"  name="uname" placeholder="user-id" required>
+            <input type="password" class="input-field" name="pass" placeholder="enter password" required>
+
+
+            <button type="submit" class="submit">Log In</button>
+                <p class="loginlink">Already have account <a href="{%url 'user_profile'%}" >Sign Up</a> </p>
+           </form>
+            <form class="input-group" id="recruiter" method="post" action="/recruiter_login">
+                {% csrf_token %}
+            <input type="text" class="input-field"  name="uname" placeholder="user-id" required>
+            <input type="password" class="input-field" name="pass" placeholder="enter password" required>
+                <button type="submit" class="submit">Log In</button>
+                <p class="loginlink">Already have account <a href="{%url 'user_profile'%}" >Sign Up</a> </p>
+           </form>
+
+        </div>
+</div>
+<script type="text/javascript">
+    var x=document.getElementById("candidate");
+    var y=document.getElementById("recruiter");
+    var z=document.getElementById("btn");
+
+    function recruiter(){
+       x.style.left="-400px";
+        y.style.left="50px";
+         z.style.left="110px";
+    }
+    function candidate(){
+       x.style.left="50px";
+        y.style.left="400px";
+         z.style.left="0px";
+    }
+
+</script>
+
+{% endblock %}

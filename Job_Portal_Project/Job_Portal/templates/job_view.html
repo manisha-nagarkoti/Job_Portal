@@ -1,0 +1,49 @@
+{% load static %}
+{% include 'navigation.html' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/job_details.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="img">
+             <img src="{{job.company_logo.url}}">
+        </div>
+        <div class= "detail">
+            <h1>{{jobdata.title}}</h1>
+             <p class="name">xyz pvt lim</p>
+             <p><i class="fa fa-briefcase"></i><span>{{job.experience}}</span><p>
+             <p><i class="fa fa-inr"></i><span>{{job.salary}}</span></p>
+             <p><i class="fa fa-map-marker"></i><span>{{job.location}}</span></p>
+             <div class="apply-btn">
+              <a href ="{% url 'delete_job' job.id%}"><button>Delete</button></a>
+             </div>
+        </div>
+    </div>
+    <div class="sec2">
+
+     <div class="description">
+         <h2>Description:</h2>
+         <p>{{ job.description}}</p>
+
+     </div>
+     <div class="other">
+            <h2>Skills</h2>
+            <p>{{job.skills}}</p>
+    </div>
+    <div class="dates">
+    <h2>Start Date</h2>
+         <p>{{job.start_date}}</p>
+    </div>
+    <div class="dates1">
+    <h2>End Date</h2>
+         <p>{{job.end_date}}</p>
+    </div>
+    <div class="apply-btn">
+              <a><button>Delete</button></a>
+    </div>
+   </div>
+
+</div>
+
+
+{% endblock %}

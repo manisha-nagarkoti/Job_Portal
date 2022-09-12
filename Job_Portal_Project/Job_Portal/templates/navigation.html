@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_design.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" type="text/css" href="{% static 'css/nav_style.css' %}">
+
+	<title>jobportal</title>
+
+
+</head>
+<body>
+    <nav>
+		<div class="nav_bar">
+    <div class="logo"><h1>Job PorTal</h1></div>
+     <div class="menu">
+         <ul>
+        <li class="active"><a href="/recruiter_home"> Home </a> </li>
+        <li><a href="{% url 'add_jobs' %}">Add Jobs</a></li>
+        <li><a href="{% url 'job_list2' %}">Jobs List</a></li>
+        <li><a href="{% url 'edit_profile'%}">Profile</a> </li>
+        <li><a href="{% url 'candidate_applied'%}">Candidate Applied</a> </li>
+         </ul>
+         <h4>{{request.user}}</h4>
+         <a href="{% url 'Logout' %}"class="logout" >Logout</a>
+     </div>
+
+   </div>
+    </nav>
+</body>
+</html>

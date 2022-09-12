@@ -1,0 +1,101 @@
+body{
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+}
+
+.regform {
+  margin:auto;
+   font-size:18px;
+   color:#333;
+   background:#B0E0E6;
+   text-align:center;
+   width:800px;
+
+}
+.main{
+  width:70%;
+
+  margin:auto;
+
+
+}
+
+.main form{
+ width:60%;
+margin-bottom:300px;
+  margin:8% auto;
+
+}
+
+.main h1{
+text-align:center;
+ background:#017143;
+ color:white;
+}
+.name{
+display:flex;
+}
+.add_input{
+ width:400px;
+  height:40px;
+  margin-left:10px
+  text-align:center;
+  outline:none;
+}
+input{
+  width:400px;
+  height:40px;
+  text-align:center;
+  outline:none;
+  font-size:20px;
+
+}
+input:hover{
+ border-radius:2px;
+ border-black:black;
+}
+.education .date{
+
+  display:flex;
+}
+.radio-btn{
+ font-size:10px;
+}
+ .date input ,.date_input{
+   width:220px;
+ }
+.education .date .enddate{
+   margin-left:80px;
+}
+.button input{
+  margin-top:100px;
+   margin-bottom:100px;
+   margin-left:200px;
+  width:200px;
+  cursor:pointer;
+  border-radius:30px;
+  border:0;
+  outline:none;
+  background-color:#017143;
+  height:40px;
+  color:white;
+  font-size:20px;
+  border:none;
+  border-radius:10px 15px;
+}
+.text_area{
+    width:700px;
+    height:300px;
+    cursor:pointer;
+    text-align:left;
+    border-radius:30px;
+    padding-left:10px;
+    font-size:20px;
+
+
+}
+.form-box1 input{
+ width:20px;
+}
+

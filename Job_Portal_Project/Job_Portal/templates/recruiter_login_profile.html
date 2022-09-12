@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile_css.css' %}">
+
+</head>
+<body>
+
+
+<div class="regform" ><h1>Make Profile</h1></div>
+<div class="main">
+
+    <form method="post" enctype="multipart/form-data">
+         {% include 'message.html'%}
+        {% csrf_token %}
+      <div class="personal">
+            <h1>Personal Information </h1>
+            <h3>Name</h3>
+            <div class="name">
+                <input type="text" placeholder="first name" name="first_name">
+                <input type="text" placeholder="last name" name="last_name">
+            </div>
+           <h3>Company Name</h3>
+            <div class="name">
+                <input type="text" placeholder="Company name" name="company_name">
+
+            </div>
+          <h3>Company Logo</h3>
+          <input type="file" class="form-control" name="company_logo">
+
+          <h3>Establish date</h3>
+          <input type="date"  name="date_of_birth">
+
+            <h3>Mobile no</h3>
+            <input type="text" placeholder="Number" name="mobile_no" name="mobile_no">
+            <h3>Addresss</h3>
+            <input type="text" placeholder="Address" name="address" name="address">
+        </div>
+        <hr>
+
+        <div class="education">
+            <h1>About your company</h1>
+            <textarea class="text_area" row="200" cols="700" name="about"></textarea>
+
+           </div>
+
+       <div class="button">
+        <input type="submit" value="Create my Profile">
+       </div>
+  </form>
+   </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

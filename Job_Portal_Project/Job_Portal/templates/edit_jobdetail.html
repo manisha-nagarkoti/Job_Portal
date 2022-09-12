@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form_design.css' %}">
+    {% include 'navigation.html'%}
+</head>
+<body>
+<div class="regform" ><h1> Edit Jobs</h1></div>
+<div class="main">
+    <form method="POST" >
+        {% csrf_token %}
+        <div id="name">
+            <h2 class="title1">Title</h2>
+            <input class="title" type="text" name="title" value="{{job.title}}"><br>
+        </div>
+        <div class="date">
+        <h2 class="startdatelabel">Start Date</h2>
+        <input class="startdate" type="date" name="startdate" ><br>
+        <span> [{{job.start_date}}]</span>
+        <h2 class="enddatelabel">End Date</h2>
+        <input class="enddate" type="date" name="enddate" ><br>
+            <span> [{{job.end_date}}]</span>
+         </div>
+        <div class="column3">
+        <h2 class="experiencelabel">Experience</h2>
+        <input class="experience" type="text" name="experience" value="{{job.experience}}">
+        <h2 class="salarylabel">Salary</h2>
+        <input class="salary" type="text" name="salary" value="{{job.salary}}"><br>
+
+        </div>
+        <div class="column4">
+        <h2 class="name">Skills</h2>
+        <input class="skills" type="text" name="skills" value="{{job.skills}}"><br>
+
+        </div>
+        <div class="column5">
+        <h2 class="name">Location</h2>
+        <input class="location" type="text" name="location" value="{{job.location}}"><br>
+            </div>
+        <h2 class="name">Description</h2>
+        <input class="description" type="text" name="description" value="{{job.description}}"><br>
+
+        <input class="button" type="submit" name="Add Job" value="Edit Now"><br>
+
+    </form>
+
+
+</div>
+{% include 'footer.html'%}
+
+</body>
+</html>

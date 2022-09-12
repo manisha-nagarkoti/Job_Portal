@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form_design.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" type="text/css" href="{% static 'css/nav_style.css' %}">
+	<title>jobportal</title>
+</head>
+<body>
+{% include 'candidate_nav.html'%}
+
+<div class="form-box1">
+    <form class="input-group" method ="post" action="/userpasswordchange">
+     {% csrf_token %}
+      <label>Current password</label>
+     <input type="password" class="input-field" name="current_password" required="True" ><br>
+      <label>New password</label><br>
+     <input type="password" class="input-field" name="password1" required="True" ><br>
+       <label> Confirm New password</label><br>
+     <input type="password" class="input-field" name="password2" required="True" ><br>
+
+     <input type="submit"   class="submit-btn" value="Change password">
+ </form>
+</div>
+
+</body>
+</html>

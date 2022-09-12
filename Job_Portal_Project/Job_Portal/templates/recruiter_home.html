@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recruiter_home'  %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<title>jobportal</title>
+
+
+</head>
+<body>
+   {% include 'navigation.html'%}
+<header class = "hero-section">
+		<div class="hero-image">
+         <img src="{% static 'images/hero-section_img.jpg.jpg'%}">
+        </div>
+
+	    <div class="hero-text-section">
+   	      <h1>Junior Make IT Work</h1>
+   	      <p>Hire and invest in highly skilled junior now!</p>
+   	       <a href="{% url 'add_jobs' %}"><button>POST OFFER NOW</button></a>
+       </div>
+   </header>
+
+   <div class="job-offer">
+       <h1>Newest Job</h1>
+       <hr>
+       <p>Recent Jobs Posted By You</p>
+   </div>
+
+
+   <section class="job-section1">
+      {% for i in job %}
+
+    <div class="company-details">
+       <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update">
+
+             <h2>{{i.title }}</h2>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+			 <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+
+
+         </div>
+	</div>
+        <div class="apply-btn">
+                <a href="{% url 'job_view' i.id %}"><button type="button" >View</button></a>
+
+       </div>
+
+    </div>
+
+        {% endfor %}
+
+        <a href="{% url 'job_list2' %}" ><button type="button" class="apply-btn1" >View all Jobs</button></a>
+	</div>
+
+
+
+</section>
+   <section >
+	<div class="no_user">
+         <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Candidate</h3>
+			 <h1>{{no_student}}</h1>
+
+		 </div>
+		 <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Company</h3>
+			 <h1>{{no_company}}</h1>
+		 </div>
+		 <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Jobs</h3>
+			 <h1>{{no_job}}</h1>
+
+		 </div>
+
+	</div>
+
+</section>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/job_list.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+</head>
+<body>
+{% include 'candidate_nav.html' %}
+<h1></h1>
+<center>
+
+    <h1>Job Search</h1>
+    <hr>
+
+    <div class="search1">
+		<div class="searching1">
+			<form  method="post" action="{% url 'searched_job'%}" >
+				{% csrf_token %}
+				<input type="text" class="searchbox" name="job_name" placeholder="Search by job title" />
+				<input type="text" class="searchbox" name="loc_name"  placeholder="Search by location" />
+
+				<label class ="fa fa-search"><button type="submit" ></button></label>
+            </form>
+	  </div>
+    </div>
+
+     <h2>Total result {{num}}</h2>
+    {% if job1 %}
+
+      {% for i in job1 %}
+       <div class="company-details1">
+         <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update1">
+
+             <h1>{{i.title }}</h1>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+             <i class="fa fa-inr"></i><span>{{i.salary}}</span><br>
+             <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+             <p>Skills<i class="fa fa-angle-double-right"></i>
+                 <small>{{i.skills}}</small></p>
+             <p>Description<i class="fa fa-angle-double-right"></i> ...............<a href="{% url 'job_details' i.id %}">Read more</a></p>
+         </div>
+         </div>
+        <div class="apply-btn3">
+                <a href="{% url 'job_details' i.id %}"><button type="button" >Apply</button></a>
+
+       </div>
+
+    </div>
+
+    {% endfor %}
+
+    {%else%}
+    <h3>No Data found but view this jobs</h3>
+           {% for i in job2 %}
+       <div class="company-details1">
+         <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update1">
+
+             <h1>{{i.title }}</h1>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+             <i class="fa fa-inr"></i><span>{{i.salary}}</span><br>
+             <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+             <p>Skills<i class="fa fa-angle-double-right"></i>
+                 <small>{{i.skills}}</small></p>
+             <p>Description<i class="fa fa-angle-double-right"></i> ...............<a href="{% url 'job_details' i.id %}">Read more</a></p>
+         </div>
+         </div>
+        <div class="apply-btn3">
+                <a href="{% url 'job_details' i.id %}"><button type="button" >Apply</button></a>
+
+       </div>
+
+    </div>
+    {% endfor %}
+ {% endif %}
+</center>
+{% include 'footer.html'%}
+</body>
+</html>

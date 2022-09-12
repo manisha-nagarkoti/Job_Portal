@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile_css.css' %}">
+
+</head>
+<body>
+<div class="regform" ><h1>Make Profile</h1></div>
+<div class="main">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="personal">
+            <h1>Personal Information </h1>
+            <h3>Name</h3>
+            <div class="name">
+                <input type="text" placeholder="first name" name="first_name" class="add input">
+                <input type="text" placeholder="last name" name="last_name" class="add input">
+            </div>
+            <h3>Date of Birth</h3>
+            <input type="date" placeholder="first name" name="date_of_birth" class="date_input">
+
+            <h3>gender</h3>
+            <input type="radio" name="gender" value="Male" class="radio-btn"><label>Male</label>
+            <input type="radio"  name="gender" value="Female" class="radio-btn"><label>Female</label>
+
+
+            <h3>Mobile no</h3>
+            <input type="text" placeholder="Number" name="mobile_no">
+            <h3>Addresss</h3>
+            <input type="text" placeholder="Address" name="address" >
+
+             <h3>Upload Image</h3>
+            <input type="file" class="form-control" name="candidate_img">
+
+        </div>
+        <hr>
+        <div class="education">
+             <h1>Education</h1>
+             <h3>School/college name</h3>
+            <input type="text" placeholder="School/colledge name" name="clg_name">
+            <h3>Course</h3>
+            <input type="text" placeholder="Course" name="course">
+            <h3>Specialization</h3>
+            <input type="text" placeholder="Specialization" name="specialization">
+            <div class="date">
+                <div>
+                  <h3>Joining</h3>
+                  <input type="date" name="joining_date">
+                </div>
+               <div class="enddate">
+                 <h3 >Ending</h3>
+                  <input type="date" name="end_date" >
+                 </div>
+           </div>
+        </div>
+    <div class="button">
+        <input type="submit" value="Create my Profile">
+    </div>
+
+    </form>
+
+</div>
+{% include 'footer.html'%}
+
+</body>
+</html>

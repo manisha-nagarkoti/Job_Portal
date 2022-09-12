@@ -1,0 +1,134 @@
+body{
+  margin:0;
+  padding:0;
+
+
+}
+
+.container ,.about_company{
+  width:70%;
+  margin: auto;
+  background:#E6E6FA;
+  height:700px;
+  position:relative;
+  z-index:100;
+  margin-top:100px;
+
+
+
+}
+.container1{
+    width:70%;
+  margin: auto;
+  background:#E6E6FA;
+  height:100%
+  position:relative;
+  z-index:100;
+  margin-top:100px;margin-bottom:100px;
+
+}
+.row {
+  display:flex;
+
+
+}
+.img{
+   height:200px;
+   width:200px;
+
+   margin-right:100px;
+   margin-left :20px;
+   margin-top:50px;
+   }
+.img img{
+height:200px;
+   width:200px;
+
+}
+.detail{
+   height:300px;
+   width:400px;
+   padding:20px;
+   display:block;
+
+
+
+}
+
+.detail p{
+  font-weight:400;
+  font-size:20px;
+  margin-left:20px;
+}
+
+.detail p i{
+   color:#77d1b1;
+
+}
+.detail p span{
+   margin-left:20px;
+
+}
+
+
+.apply-btn{
+    height:48px;
+
+ 	padding:7px;
+ 	border-radius-left-radius:5px;
+ 	border-radius-right-radius:5px;
+ 	position:absolute;
+ 	margin-top:20px;
+ 	}
+.apply-btn a  button,.apply-btn input{
+ padding:0 30px;
+ height:40px;
+ border-radius:20px;
+ box-shadow: none;
+
+ border:1px;
+ background-color:#017143;
+ color:white;
+ outline: none;
+ cursor:pointer;
+ font-size:16px;
+
+}
+.sec2{
+  display:block;
+}
+.description{
+
+ padding-top:0px;
+ padding-left:30px;
+}
+.other,.dates,.dates1{
+  display:flex;
+  padding-top:0px;
+  height:18px;
+  position:relative;
+  margin:20px;
+}
+.other p,.dates p,.dates1 p{
+
+   margin-left:20px;
+   font-size:18px;
+   font-weight:500;
+   margin-top:5px;
+}
+.about_company{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+ .about_company h1{
+   font-size:30px;
+   font-weight:500;
+ }
+
+.letter{
+
+ margin-top:280px;
+}
+.text,.letter h1{
+ margin-left:50px;
+}

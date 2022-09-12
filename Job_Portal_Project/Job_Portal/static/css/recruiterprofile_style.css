@@ -1,0 +1,159 @@
+body{
+
+  margin:0;
+  padding:0;
+
+
+}
+.container{
+ display:flex;
+ border:1px solid black;
+}
+.sidebar{
+     /* Full-height: remove this if you want "auto" height */
+
+   position:absolute;
+   margin-left:100px;
+   height:100%;
+   }
+.circle{
+
+  margin-top:100px;
+  margin-left:50px;
+  margin-bottom:30px;
+  width:200px;
+  border-radius:50%;
+  color:white;
+  background:white;
+  height:200px;
+}
+.circle img{
+ top:20px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  color:white;
+  background:white;
+  height:200px;
+}
+.username{
+  width:200px;
+   height:30px;
+  text-decoration:none;
+  font-size:25px;
+  color:black;
+  font-weight:700;
+  letter-spacing:1px;
+  line-height:1.4em;
+  margin-left:50px;
+   padding-bottom:100px;
+
+}
+
+.list  {
+ text-decoration: none;
+
+  font-size:20px;
+  margin-top:30px;
+
+}
+.list button{
+  width:150px;
+   height:30px;
+  background:black;
+  text-decoration:none;
+  font-size:15px;
+  color:white;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1.4em;
+  border:none;
+  border-radius:10px 15px;
+  margin-left:78px;
+  margin-top:30px;
+
+}
+
+.form1,.form2,.form3{
+
+  position:absolute;
+  margin-left:500px;
+  margin-top:120px;
+
+
+}
+.form1 label{
+  color:black;
+  padding:30px;
+  text-decoration:none;
+  font-size:20px;
+  color:black;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1em;
+
+}
+hr{
+ background:green;
+ height:2px;
+ width:500px;
+ margin-left:25px;
+}
+.form2{
+ height:600px;
+ width:700px;
+
+
+
+ display:none;
+ border:1px ;
+
+
+
+}
+.form2 .form-box1{
+padding-top:30px;
+
+ height:300px;
+ width:700px;
+}
+.form2 .form-box1 label{
+  padding:20px;
+  text-decoration:none;
+  font-size:25px;
+  color:black;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1.4em;
+  }
+.form2 .form-box1 input{
+   margin-left:30px;
+   margin-top:50px;
+   width:400px;
+   height:30px;
+
+}
+.form2 .form-box1 .input-field1{
+ margin-left:50px;
+ font-size:18px;
+}
+.form2 .form-box1 .input-field2{
+   margin-left:50px;
+}
+.form2 .form-box1 .submit-btn{
+   margin-left:100px;
+   margin-top:60px;
+    font-size:20px;
+    background:#017143;
+    color:white;
+    border:none;
+    width:200px;
+    height:40px;
+    border-width:2px;
+ 	border-radius:5px 10px;
+}
+.form3{
+
+
+ display:none;
+}

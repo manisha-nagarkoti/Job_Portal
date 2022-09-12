@@ -1,0 +1,64 @@
+{% load static %}
+
+   {% include 'message.html'%}
+
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/user_login_design.css'%}">
+
+{% block body %}
+<div class="hero">
+   <img src="{% static 'images/login.jpg'%}">
+
+   <div class="heading"><h1>Sign Up</h1>
+
+       <p>Sign up for latest Job posted on Job Portal</p>
+   </div>
+
+    <div class="form-box">
+
+        <div class="button-box">
+
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="candidate()">Candidate</button>
+                <button type="button" class="toggle-btn" onclick="recruiter()">Recruiter</button>
+        </div>
+        <form class="input-group" id="candidate" method="POST" action="/candidate_data">
+            {% csrf_token %}
+            <input type="email" class="input-field"  name="username" placeholder="email_id" required>
+            <input type="password" class="input-field" name="password1" placeholder="enter password" required><br>
+            <input type="password" class="input-field" name="password2" placeholder="retype password" required><br>
+            <button type="submit" class="submit">CREATE ACCOUNT</button>
+            <p class="loginlink">Already have account <a href="{%url 'login_form'%}" >Login</a> </p>
+        </form>
+        <form class="input-group" id="recruiter" method="POST" action="/recruiter_data">
+               {% csrf_token %}
+            <input type="email" class="input-field" placeholder="user-id" name="username" required>
+            <input type="password" class="input-field" name="password1" placeholder="enter password" required><br>
+            <input type="password" class="input-field" name="password2" placeholder="retype password" required><br>
+            <button type="submit" class="submit">CREATE ACCOUNT</button>
+            <p class="loginlink">Already have account <a href="{%url 'login_form'%}" >Login</a></p>
+        </form>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var x=document.getElementById("candidate");
+    var y=document.getElementById("recruiter");
+    var z=document.getElementById("btn");
+
+     function recruiter(){
+       x.style.left="-400px";
+        y.style.left="50px";
+         z.style.left="110px";
+    }
+    function candidate(){
+       x.style.left="50px";
+        y.style.left="400px";
+         z.style.left="0px";
+    }
+
+</script>
+
+{% endblock %}

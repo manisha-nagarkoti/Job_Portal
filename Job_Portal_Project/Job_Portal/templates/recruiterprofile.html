@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recruiterprofile_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile_css.css' %}">
+
+</head>
+{% include 'candidate_nav.html'%}
+<body>
+<div class="container">
+  <div class="sidebar" id="sidebar">
+    <div class="circle"><img src="{{candidate.candidate_logo.url}}"></div>
+      <label class="username">{{candidate.user.first_name}}</label>
+    <div class="list">
+
+         <button ONCLICK="view_profile()">View profile</button><br>
+         <button ONCLICK="edit_profile()">Edit profile</button><br>
+         <button ONCLICK="changepass()">Change Password</button><br>
+
+     </div>
+   </div>
+    <div class="form1" id="form1">
+    <form class="view_profile" >
+      <h1>About</h1>
+        <h5>Full name</h5>
+        <label>{{candidate.user.first_name}}  {{candidate.user.last_name}} </label>
+        <hr>
+         <h5>Email id</h5>
+        <label>{{candidate.user.username}}</label>
+        <hr>
+        <h5>gender</h5>
+        <label>{{candidate.gender}}</label>
+        <hr>
+        <h5>Date of Birth</h5>
+        <label>{{candidate.date_of_birth}}</label>
+        <hr>
+        <h5>Address</h5>
+        <label>{{candidate.address}}</label>
+        <hr>
+        <h5>Mobile no.</h5>
+        <label>{{candidate.mobile_no}}</label>
+        <hr class="hr1">
+        <h1>Education</h1>
+        <h5>College name</h5>
+
+        <label>{{candidate.clg_name}}</label>
+        <hr>
+         <h5>Course</h5>
+        <label>{{candidate.course}}</label>
+        <hr>
+        <h5>Specialization</h5>
+        <label>{{candidate.specialization}}</label>
+        <hr>
+        <h5>Joining date</h5>
+        <label>{{candidate.joining_date}}</label>
+        <hr>
+        <h5>ending date</h5>
+        <label>{{candidate.ending_date}}</label>
+        <hr>
+      </form>
+    </div>
+
+    <div class="form2" id="form2">
+
+       <form class="edit_profile" method="post" action="/userpasswordchange">
+           <div class="form-box1">
+
+           {% csrf_token %}
+              <label>Current password</label><br>
+               <input type="password" class="input-field1" name="current_password" required="True" ><br>
+              <label>New password</label><br>
+              <input type="password" class="input-field2" name="password1" required="True" ><br>
+             <label> Confirm New password</label><br>
+             <input type="password" class="input-field2" name="password2" required="True" ><br>
+               <input type="submit"   class="submit-btn" value="Change password">
+           </div>
+     </form>
+    </div>
+
+    <div class="form3" id = "form3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="personal">
+            <h1>Personal Information </h1>
+            <h3>Name</h3>
+            <div class="name">
+                <input type="text"  value ="{{candidate.user.first_name}}"  name="first_name">
+                <input type="text" value ="{{candidate.user.last_name}}" name="last_name">
+            </div>
+            <h3>Date of Birth</h3>
+            <input type="date" value ="{{candidate.date_of_birth}}" name="date_of_birth">
+            <h3>gender</h3>
+            <input type="text" value ="{{candidate.gender}}" name="gender">
+            <h3>Mobile no</h3>
+            <input type="text"  value ="{{candidate.mobile_no}}" name="mobile_no">
+            <h3>Addresss</h3>
+            <input type="text" value="{{candidate.address}}" name="address">
+        </div>
+
+        <div class="education">
+             <h1>Education</h1>
+             <h3>School/colledge name</h3>
+            <input type="text" value="{{candidate.clg_name}}" name="clg_name">
+            <h3>Course</h3>
+            <input type="text" value="{{candidate.course}}" name="course">
+            <h3>Specialization</h3>
+            <input type="text" value="{{candidate.specialization}}" name="specialization">
+            <div class="date">
+                <div>
+                  <h3>Joining</h3>
+                  <input type="date" name="joining_date" value="{{candidate.joining_date}}">
+                </div>
+                <div class="enddate">
+                 <h3 >Ending</h3>
+                  <input type="date" name="end_date" value="{{candidate.ending_date}}">
+                 </div>
+           </div>
+        </div>
+       <div class="button">
+        <input type="submit" value="Update Profile">
+      </div>
+    </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var x=document.getElementById("form1");
+    var y=document.getElementById("form2");
+    var z=document.getElementById("form3");
+    var a=document.getElementById("sidebar");
+    y.style.display="none";
+    z.style.display="none";
+
+
+
+   function view_profile(){
+
+               x.style.display="block";
+               y.style.display="none";
+               z.style.display="none";
+
+
+     }
+   function edit_profile(){
+       if(z.style.display=="none"){
+               z.style.display="block";
+               x.style.display="none";
+               y.style.display="none";
+     }
+    else{y.style.display="none";}
+
+   }
+   function changepass(){
+     if(y.style.display=="none"){
+               y.style.display="block";
+               x.style.display="none";
+               z.style.display="none";
+     }
+     else{z.style.display="none";}
+
+
+   }
+
+
+</script>
+
+</body>
+
+
+</html>

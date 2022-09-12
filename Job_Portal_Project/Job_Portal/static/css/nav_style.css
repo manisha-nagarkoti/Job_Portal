@@ -1,0 +1,110 @@
+.nav_bar{
+background:#017143;
+height:110px;
+width:100%;
+overflow:hidden;
+
+
+
+}
+.logo{
+ float:left;
+ color:white;
+ text-align:center;
+ width:200px;
+ margin:10px;
+ font-weight:500;
+ padding-left: 10px;
+
+}
+.menu{
+ margin-left:500px;
+ height:110px;
+ display:flex;
+}
+
+.menu ul{
+display:inline-flex;
+list-style:none;
+color:white;
+margin-right:30px;
+padding-left: -10px;
+}
+.menu ul li{
+  width:40px;
+  height:28px;
+  margin:10px;
+  padding:10px;
+}
+.menu ul li a:hover {
+  border-bottom:2px solid white;
+
+}
+
+.menu ul li a{
+  text-decoration:none;
+   color:white;
+   font-size:18px;
+  font-weight:500;
+
+}
+.submenu{
+ display:none;
+}
+
+
+.menu ul li:hover .submenu{
+ display:block;
+ position:absolute;
+ margin-top:20px;
+  margin-left:-20px;
+ background:#017143;
+ width:150px;
+ cursor:pointer;
+
+
+}
+.menu ul li:hover .submenu ul {
+  display:block;
+ cursor:pointer;
+   margin-left:-15px;
+   width:100px;
+
+}
+.menu ul li:hover .submenu ul li {
+
+  width:100px;
+  margin-left:-15px;
+  cursor:pointer;
+
+}
+
+
+.menu label{
+   background:blue;
+}
+.logout{
+   margin-left:200px;
+   margin-top:30px;
+   width:60px;
+   text-decoration:none;
+  padding:10px;
+  font-size:18px;
+  font-weight:500;
+  color:white;
+
+
+}
+
+h4{
+   margin-top:20px;
+   margin-left:40px;
+   margin-top:30px;
+   width:60px;
+   text-decoration:none;
+  padding:10px;
+  font-size:20px;
+  font-weight:500;
+  color:white;
+
+}

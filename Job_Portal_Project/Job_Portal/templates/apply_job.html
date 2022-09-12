@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+</head>
+<body>
+  {% include 'candidate_nav.html'%}
+
+    <form style="display:block;margin-bottom:200px;margin-top:100px;margin-left:500px;" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+       <h1>cover Letter</h1>
+        <div class="text">
+            <textarea class="text_area"   name="cover_letter"  rows="5" cols=100" style=""></textarea>
+        </div>
+        <h1>why we hire you</h1>
+        <div class="text">
+            <textarea class="text_area"   name="cover_letter"  rows="5" cols=100" style=""></textarea>
+        </div>
+
+      <h1>Resume Upload</h1>
+
+        <input style="font-size:20px;" type="file" value="" name="resume" ><br>
+    <input type="submit" value="Submit" style="margin-top:50px;border:none; border-width:2px;border-radius:5px 10px; background:#017143;color:white;font-size:20px;font-weight:300;height:30px;width:100px;">
+    </form>
+
+ {% include 'footer.html' %}
+
+
+
+
+</body>
+</html>

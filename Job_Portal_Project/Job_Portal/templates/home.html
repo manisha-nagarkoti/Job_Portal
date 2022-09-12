@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_design.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" type="text/css" href="{% static 'css/nav_style.css' %}">
+	<title>jobportal</title>
+
+
+</head>
+<body>
+   {% include 'candidate_nav.html'%}
+	<header class = "hero-section">
+		<div class="hero-image">
+         <img src="{% static 'images/hero-section_img.jpg.jpg'%}">
+        </div>
+
+	    <div class="hero-text-section">
+   	      <h1>Start where you are.Use what you have.<br>Do what you can.</h1>
+   	      <p>Search a Job now!.Achieve your dream now.</p>
+   	       <a href="{% url 'job_list'%}" ><button >Search Job</button></a>
+       </div>
+   </header>
+
+	<div class="search">
+		<div class="searching">
+			<form  method="post" action="{% url 'searched_job'%}">
+				{% csrf_token %}
+				<input type="text" class="searchbox" name="job_name" placeholder="Search by job title" />
+				<input type="text" class="searchbox" name="loc_name"  placeholder="Search by location" />
+
+				<label class ="fa fa-search"><button type="submit" ></button></label>
+            </form>
+	  </div>
+   </div>
+
+    <section class="job-categories">
+       <h1>Job Categories</h1>
+		<hr class="green">
+		<p>Search for job using JOb Portal,using one of the categories below</p>
+
+
+		<div class='categories1'>
+            {% for i in category%}
+			{% if i.id == 1 %}
+         	<a href="{% url 'category_job' i.id %}"><div class="company1">
+   		           <div class="icon-container">
+   			         <i class="fa fa-user"></i>
+   		           </div>
+   		         <h2 value="1">{{i.name}}</h2>
+
+		    </div></a>
+
+
+			{% elif i.id == 2%}
+			<a href="{% url 'category_job' i.id %}"><div class="company1">
+   		              <div class="icon-container">
+   			          <i class="fa fa-laptop"></i>
+   		             </div>
+   		             <h2>{{i.name}}</h2>
+		    </div></a>
+
+
+			{% elif i.id == 3 %}
+			<a href="{% url 'category_job' i.id %}"><div class="company1">
+   		       <div class="icon-container">
+   			    <i class="fa fa-university"></i>
+   		      </div>
+   		    <h2>{{i.name}}</h2>
+			</div></a>
+
+
+			{% elif i.id == 4%}
+	        <a href="{% url 'category_job' i.id %}"><div class="company1">
+   		         <div class="icon-container">
+   			        <i class="fa fa-magic"></i>
+   		        </div>
+   		          <h2>{{i.name}}</h2>
+			</div></a>
+		</div>
+<br>
+		<div class='categories2'>
+			{% elif i.id == 5%}
+	            <a href="{% url 'category_job' i.id %}"><div class="company1">
+   		           <div class="icon-container">
+   			       <i class="fa fa-building"></i>
+   		           </div>
+   		        <h2>{{i.name}}</h2>
+				</div></a>
+             {% elif i.id == 6%}
+	            <a href="{% url 'category_job' i.id %}"><div class="company1">
+   		             <div class="icon-container">
+   			         <i class="fa fa-paper-plane"></i>
+   		           </div>
+   		          <h2>{{i.name}}</h2>
+				</div></a>
+            {% elif i.id == 7%}
+	              <a href="{% url 'category_job' i.id %}"> <div class="company1">
+   		         <div class="icon-container">
+   			     <i class="fa fa-tv"></i>
+   		       </div>
+   		         <h2>{{i.name}}</h2>
+				  </div></a>
+		      {% elif i.id == 8 %}
+			<a href="{% url 'category_job' i.id %}"><div class="company1">
+   		                <div class="icon-container">
+   			        <i class="fa fa-child"></i>
+   		             </div>
+   		         <h2>{{i.name}}</h2>
+			</div></a>
+        {% else %}
+			{% endif %}
+		{% endfor %}
+
+		</div>
+
+		<a href="{% url 'job_list' %}" ><button type="button" class="category-button" >View all Jobs</button></a>
+
+	</section>
+
+<div >
+   <div class="job-offer">
+   	<h1>Newest jobs</h1>
+
+    <hr>
+		<p>Find Latest Job post </p>
+
+   </div>
+   {% for i in job %}
+    <div class="company-details">
+       <div class="d_l">
+         <div class="c_logo">
+             <img src="{{i.company_logo.url}}">
+         </div>
+         <div class="job-update">
+
+             <h2>{{i.title }}</h2>
+             <p class="company-name">{{i.company_name}}</p>
+             <i class="fa fa-briefcase"></i><span>{{i.experience}}</span><br>
+			 <i class="fa fa-map-marker"></i><span>{{i.location}}</span><br>
+
+
+         </div>
+	  </div>
+		<div class="apply-btn">
+                <a href="{% url 'job_details' i.id %}"><button type="button" >Apply</button></a>
+
+       </div>
+
+    </div>
+   {% endfor %}
+	<a href="{% url 'job_list' %}"><button type="button" class="apply-btn1" >View all Jobs</button></a>
+
+</div>
+
+<section >
+	<div class="no_user">
+         <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Candidate</h3>
+			 <h1>{{no_student}}</h1>
+
+		 </div>
+		 <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Company</h3>
+			 <h1>{{no_company}}</h1>
+		 </div>
+		 <div class="no">
+			 <div class="fa fa-user"></div>
+			 <h3>Jobs</h3>
+			 <h1>{{no_job}}</h1>
+
+		 </div>
+
+	</div>
+
+</section>
+
+{% include 'footer.html'%}
+</body>
+</html>

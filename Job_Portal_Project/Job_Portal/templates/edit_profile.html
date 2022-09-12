@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recruiterprofile_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile_css.css' %}">
+</head>
+{% include 'navigation.html'%}
+<body>
+<div class="container">
+  <div class="sidebar" id="sidebar">
+    <div class="circle"><img src="{{profile.recruiter_logo.url}}"></div>
+      <label class="username">{{profile.company_name}}</label>
+    <div class="list">
+
+         <button ONCLICK="view_profile()">View profile</button><br>
+         <button ONCLICK="edit_profile()">Edit profile</button><br>
+         <button ONCLICK="changepass()">Change Password</button><br>
+
+     </div>
+   </div>
+    <div class="form1" id="form1">
+    <form class="view_profile" >
+      <h1>About</h1>
+        <h5>Company Name</h5>
+        <label>{{profile.company_name}}</label>
+        <hr>
+        <h5>Full name</h5>
+        <label>{{profile.user.first_name}}  {{profile.user.last_name}} </label>
+        <hr>
+         <h5>Email id</h5>
+        <label>{{profile.user.username}}</label>
+        <hr>
+
+        <h5>Date of Establish</h5>
+        <label>{{profile.establish_date}}</label>
+        <hr>
+        <h5>Addresss</h5>
+        <label>{{profile.address}}</label>
+        <hr>
+        <h5>Mobile no.</h5>
+        <label>{{profile.mobile_no}}</label>
+        <hr class="hr1">
+
+        <h1>About Your Company</h1>
+        <textarea class="text_area" name="about"  row="200" cols="700">{{profile.about}}</textarea>
+
+    </form>
+    </div>
+
+    <div class="form2" id="form2">
+
+       <form class="edit_profile" method="post" action="/userpasswordchange">
+           <div class="form-box1">
+
+           {% csrf_token %}
+              <label>Current password</label>
+               <input type="password" class="input-field1" name="current_password" required="True" ><br>
+              <label>New password</label><br>
+              <input type="password" class="input-field1" name="password1" required="True" ><br>
+             <label> Confirm New password</label>
+             <input type="password" class="input-field1" name="password2" required="True" ><br>
+               <input type="submit"   class="submit-btn" value="Change password">
+           </div>
+     </form>
+    </div>
+
+    <div class="form3" id = "form3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="personal">
+            <h1>Personal Information </h1>
+            <h3>Name</h3>
+            <div class="name">
+                <input type="text"  value ="{{profile.user.first_name}}"  name="first_name">
+                <input type="text" value ="{{profile.user.last_name}}" name="last_name">
+            </div>
+            <h3>Company Name</h3>
+            <input type="text" value ="{{profile.company_name}}" name="company_name">
+            <h3>Date of Establish</h3>
+            <input type="date" value ="{{profile.date_of_establish}}" name="date_of_birth">
+            <h3>Mobile no</h3>
+            <input type="text"  value ="{{profile.mobile_no}}" name="mobile_no">
+            <h3>Addresss</h3>
+            <input type="text" value="{{profile.address}}" name="address">
+        </div>
+
+        <h3>About</h3>
+        <textarea  class="text_area" name="about"  row="200" cols="700">{{profile.about}} </textarea>
+       <div class="button">
+        <input type="submit" value="Edit Profile">
+      </div>
+    </form>
+    </div>
+</div>
+<script type="text/javascript">
+    var x=document.getElementById("form1");
+    var y=document.getElementById("form2");
+    var z=document.getElementById("form3");
+    var a=document.getElementById("sidebar");
+    y.style.display="none";
+    z.style.display="none";
+
+
+
+   function view_profile(){
+
+               x.style.display="block";
+               y.style.display="none";
+               z.style.display="none";
+
+
+     }
+   function edit_profile(){
+       if(z.style.display=="none"){
+               z.style.display="block";
+               x.style.display="none";
+               y.style.display="none";
+     }
+    else{y.style.display="none";}
+
+   }
+   function changepass(){
+     if(y.style.display=="none"){
+               y.style.display="block";
+               x.style.display="none";
+               z.style.display="none";
+     }
+     else{z.style.display="none";}
+
+
+   }
+
+
+</script>
+</body>
+
